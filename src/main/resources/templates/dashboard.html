@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login Success</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    form {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <h1>Login Success!</h1>
+        <p th:text="'Welcome, ' + ${username} + '!'" />
+        <p th:text="'Your role is: ' + ${role}"/>
+        <!-- 관리자 페이지로 이동하는 버튼 -->
+        <a href="/view/admin" th:action="@{/view/admin}">
+            <button type="submit">Go to Admin Page</button>
+        </a>
+        <!-- 사용자 페이지로 이동하는 버튼 -->
+        <a href="/view/user" th:action="@{/view/user}">
+            <button type="submit">Go to Admin Page</button>
+        </a>
+        <!-- 로그아웃 버튼 -->
+        <form method="post" th:action="@{/logout}">
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
